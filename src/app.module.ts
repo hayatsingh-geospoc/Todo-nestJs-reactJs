@@ -21,6 +21,7 @@ import { TodoModule } from './todo/todo.module';
         synchronize: configService.get<boolean>('DATABASE_SYNC'),
         logging: configService.get<boolean>('DATABASE_LOGGING'),
         database: configService.get('DATABASE_NAME'),
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
       }),
     }),
     UserModule,

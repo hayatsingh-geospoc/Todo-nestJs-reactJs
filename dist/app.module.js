@@ -12,6 +12,8 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
+const user_module_1 = require("./user/user.module");
+const todo_module_1 = require("./todo/todo.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -31,8 +33,11 @@ exports.AppModule = AppModule = __decorate([
                     synchronize: configService.get('DATABASE_SYNC'),
                     logging: configService.get('DATABASE_LOGGING'),
                     database: configService.get('DATABASE_NAME'),
+                    entities: [__dirname + '/**/*.entity{.ts,.js}'],
                 }),
             }),
+            user_module_1.UserModule,
+            todo_module_1.TodoModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
