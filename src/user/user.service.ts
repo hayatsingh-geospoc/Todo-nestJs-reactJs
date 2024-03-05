@@ -16,7 +16,8 @@ export class UserService {
     user.lastName = createUserDto.lastName;
     user.password = createUserDto.password;
     user.role = Constants.Roles.NORMAL_ROLE;
-    return 'This action adds a new user';
+    return this.userRepository.save(user);
+    
   }
 
   findAll() {
