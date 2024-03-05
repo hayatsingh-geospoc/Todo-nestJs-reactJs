@@ -3,6 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserRepositry } from './repo/user.repository';
 import { User } from './entities/user.entity';
+import { Constants } from 'src/utils/constants';
 
 @Injectable()
 export class UserService {
@@ -10,12 +11,11 @@ export class UserService {
 
   create(createUserDto: CreateUserDto) {
     let user: User = new User();
-
     user.email = createUserDto.email;
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
     user.password = createUserDto.password;
-
+    user.role = Constants.Roles.NORMAL_ROLE;
     return 'This action adds a new user';
   }
 
