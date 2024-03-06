@@ -9,14 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomRepository = void 0;
 const typeorm_1 = require("typeorm");
 let CustomRepository = class CustomRepository extends typeorm_1.Repository {
-    async findActiveUsers() {
-        return this.createQueryBuilder('user')
-            .where('user.isActive = :isActive', { isActive: true })
-            .getMany();
+    async createUser(userData) {
+        const newUser = this.create(userData);
+        return this.save(newUser);
     }
 };
 exports.CustomRepository = CustomRepository;
 exports.CustomRepository = CustomRepository = __decorate([
     (0, typeorm_1.Entity)()
 ], CustomRepository);
-//# sourceMappingURL=user.repository.js.map
+//# sourceMappingURL=custom.repository.js.map
