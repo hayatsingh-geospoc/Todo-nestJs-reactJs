@@ -2,15 +2,15 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } fro
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { User } from './entities/user.entity';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  create(@Body(ValidationPipe) createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
-  }
+  async createUser(@Body() userData: Partial<User>): Promise<User> {
+    return this.userService.createUser(userData);
 
   // @Get()
   // findAll() {
@@ -31,4 +31,5 @@ export class UserController {
   // remove(@Param('id') id: string) {
   //   return this.userService.remove(+id);
   // }
+  }
 }

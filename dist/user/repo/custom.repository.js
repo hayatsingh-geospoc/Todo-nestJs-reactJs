@@ -16,6 +16,6 @@ let CustomRepository = class CustomRepository extends typeorm_1.Repository {
 };
 exports.CustomRepository = CustomRepository;
 exports.CustomRepository = CustomRepository = __decorate([
-    (0, typeorm_1.Entity)()
+    (0, typeorm_1.EntityRepository)()
 ], CustomRepository);
 //# sourceMappingURL=custom.repository.js.map

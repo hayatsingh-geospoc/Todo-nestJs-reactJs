@@ -11,22 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
-const user_entity_1 = require("./entities/user.entity");
-const constants_1 = require("../utils/constants");
 const custom_repository_1 = require("./repo/custom.repository");
 let UserService = class UserService {
     constructor(customRepository) {
         this.customRepository = customRepository;
     }
-    create(createUserDto) {
-        let user = new user_entity_1.User();
-        console.log(user);
-        user.email = createUserDto.email;
-        user.firstName = createUserDto.firstName;
-        user.lastName = createUserDto.lastName;
-        user.password = createUserDto.password;
-        user.role = constants_1.Constants.Roles.NORMAL_ROLE;
-        return this.customRepository.save(user);
+    async createUser(userData) {
+        return this.customRepository.createUser(userData);
     }
 };
 exports.UserService = UserService;
