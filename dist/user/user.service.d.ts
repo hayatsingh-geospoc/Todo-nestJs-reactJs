@@ -1,7 +1,7 @@
 import { User } from './entities/user.entity';
-import { CustomRepository } from './repo/custom.repository';
+import { UserRepository } from './repo/user.repository';
 export declare class UserService {
-    private readonly customRepository;
-    constructor(customRepository: CustomRepository);
+    private readonly userRepository;
+    constructor(userRepository: UserRepository);
     createUser(userData: Partial<User>): Promise<User>;
 }

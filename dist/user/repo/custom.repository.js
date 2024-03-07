@@ -8,14 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomRepository = void 0;
 const typeorm_1 = require("typeorm");
+const user_entity_1 = require("../entities/user.entity");
 let CustomRepository = class CustomRepository extends typeorm_1.Repository {
-    async createUser(userData) {
-        const newUser = this.create(userData);
-        return this.save(newUser);
+    async saveUser(userData) {
+        const user = this.create(userData);
+        return this.save(user);
     }
 };
 exports.CustomRepository = CustomRepository;
 exports.CustomRepository = CustomRepository = __decorate([
-    (0, typeorm_1.EntityRepository)()
+    (0, typeorm_1.EntityRepository)(user_entity_1.User)
 ], CustomRepository);
 //# sourceMappingURL=custom.repository.js.map

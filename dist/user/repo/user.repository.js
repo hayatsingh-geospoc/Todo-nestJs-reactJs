@@ -6,17 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CustomRepository = void 0;
+exports.UserRepository = void 0;
 const typeorm_1 = require("typeorm");
-let CustomRepository = class CustomRepository extends typeorm_1.Repository {
-    async findActiveUsers() {
-        return this.createQueryBuilder('user')
-            .where('user.isActive = :isActive', { isActive: true })
-            .getMany();
-    }
+const user_entity_1 = require("../entities/user.entity");
+let UserRepository = class UserRepository extends typeorm_1.Repository {
 };
-exports.CustomRepository = CustomRepository;
-exports.CustomRepository = CustomRepository = __decorate([
-    (0, typeorm_1.Entity)()
-], CustomRepository);
+exports.UserRepository = UserRepository;
+exports.UserRepository = UserRepository = __decorate([
+    (0, typeorm_1.EntityRepository)(user_entity_1.User)
+], UserRepository);
 //# sourceMappingURL=user.repository.js.map

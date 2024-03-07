@@ -12,22 +12,27 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserService = void 0;
+exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
-const typeorm_1 = require("@nestjs/typeorm");
-const user_repository_1 = require("./repo/user.repository");
-let UserService = class UserService {
-    constructor(userRepository) {
-        this.userRepository = userRepository;
+const user_service_1 = require("./user.service");
+let UserController = class UserController {
+    constructor(userService) {
+        this.userService = userService;
     }
     async createUser(userData) {
-        return this.userRepository.save(userData);
+        return this.userService.createUser(userData);
     }
 };
-exports.UserService = UserService;
-exports.UserService = UserService = __decorate([
-    (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(user_repository_1.UserRepository)),
-    __metadata("design:paramtypes", [user_repository_1.UserRepository])
-], UserService);
-//# sourceMappingURL=user.service.js.map
+exports.UserController = UserController;
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "createUser", null);
+exports.UserController = UserController = __decorate([
+    (0, common_1.Controller)('users'),
+    __metadata("design:paramtypes", [user_service_1.UserService])
+], UserController);
+//# sourceMappingURL=user.controller.spec.js.map
