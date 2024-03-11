@@ -1,7 +1,7 @@
+import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
-import { UserRepository } from './repo/user.repository';
 export declare class UserService {
     private readonly userRepository;
-    constructor(userRepository: UserRepository);
+    constructor(userRepository: Repository<User>);
     createUser(userData: Partial<User>): Promise<User>;
 }

@@ -1,4 +1,28 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+// import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+// @Entity()
+// export class User {
+//   @PrimaryGeneratedColumn()
+//   id: number;
+
+//   @Column()
+//   firstName: string;
+
+//   @Column()
+//   lastName: string;
+
+//   @Column()
+//   email: string;
+
+//   @Column()
+//   password: string;
+
+//   @Column()
+//   role:string
+// }
+
+// user.entity.ts
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -11,12 +35,5 @@ export class User {
   @Column()
   lastName: string;
 
-  @Column()
-  email: string;
-
-  @Column()
-  password: string;
-
-  @Column()
-  role:string
+  // Add more columns as needed
 }

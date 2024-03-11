@@ -33,7 +33,6 @@ exports.AppModule = AppModule = __decorate([
                     synchronize: configService.get('DATABASE_SYNC'),
                     logging: configService.get('DATABASE_LOGGING'),
                     database: configService.get('DATABASE_NAME'),
-                    entities: [__dirname + '/**/*.entity{.ts,.js}'],
                 }),
             }),
             user_module_1.UserModule,

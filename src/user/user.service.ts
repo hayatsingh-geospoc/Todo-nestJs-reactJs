@@ -1,16 +1,34 @@
+// // user.service.ts
+// import { Injectable } from '@nestjs/common';
+// import { InjectRepository } from '@nestjs/typeorm';
+// // import { UserRepository } from './user.repository';
+// import { User } from './entities/user.entity';
+// import { UserRepository } from './repo/user.repository';
+
+// @Injectable()
+// export class UserService {
+//   constructor(
+//     @InjectRepository(UserRepository)
+//     private readonly userRepository: UserRepository,
+//   ) {}
+
+//   async createUser(userData: Partial<User>): Promise<User> {
+//     return this.userRepository.save(userData);
+//   }
+// }
+
 // user.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-// import { UserRepository } from './user.repository';
+import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
-import { UserRepository } from './repo/user.repository';
-
+// import { User } from '../user/entities/user.entity';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(UserRepository)
-    private readonly userRepository: UserRepository,
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>
   ) {}
 
   async createUser(userData: Partial<User>): Promise<User> {

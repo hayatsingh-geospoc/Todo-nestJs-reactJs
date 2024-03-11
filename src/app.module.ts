@@ -21,7 +21,7 @@ import { TodoModule } from './todo/todo.module';
         synchronize: configService.get<boolean>('DATABASE_SYNC'),
         logging: configService.get<boolean>('DATABASE_LOGGING'),
         database: configService.get('DATABASE_NAME'),
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        //entities: [__dirname + '/**/*.entity{.ts,.js}'],
       }),
     }),
     UserModule,
@@ -31,3 +31,18 @@ import { TodoModule } from './todo/todo.module';
   providers: [AppService],
 })
 export class AppModule {}
+
+// app.module.ts
+// import { Module } from '@nestjs/common';
+// import { TypeOrmModule } from '@nestjs/typeorm';
+// import { UserModule } from './user/user.module'; // Assuming user module is in 'user' folder
+
+// @Module({
+//   imports: [
+//     TypeOrmModule.forRoot({
+//       // TypeORM configuration
+//     }),
+//     UserModule,
+//   ],
+// })
+// export class AppModule {}
