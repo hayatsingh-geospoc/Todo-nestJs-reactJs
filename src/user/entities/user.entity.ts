@@ -24,7 +24,7 @@
 // user.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'custom_table' })
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
@@ -34,6 +34,16 @@ export class User {
 
   @Column()
   lastName: string;
+
+  @Column()
+  email:string
+
+  @Column()
+  password:string
+
+  @Column()
+  role:string
+
 
   // Add more columns as needed
 }

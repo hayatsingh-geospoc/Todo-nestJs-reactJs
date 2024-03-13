@@ -17,12 +17,22 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./entities/user.entity");
+const constants_1 = require("../utils/constants");
 let UserService = class UserService {
     constructor(userRepository) {
         this.userRepository = userRepository;
     }
-    async createUser(userData) {
-        return this.userRepository.save(userData);
+    async createUser(createUserDto) {
+        let user = new user_entity_1.User();
+        user.email = createUserDto.email;
+        user.firstName = createUserDto.firstName;
+        user.lastName = createUserDto.lastName;
+        user.password = createUserDto.password;
+        user.role = constants_1.Constants.Roles.NORMAL_ROLE;
+        return this.userRepository.save(user);
+    }
+    async FindAll() {
+        return this.userRepository.find();
     }
 };
 exports.UserService = UserService;

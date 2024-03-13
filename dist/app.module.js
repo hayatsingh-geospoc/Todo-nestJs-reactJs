@@ -8,12 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
-const user_module_1 = require("./user/user.module");
-const todo_module_1 = require("./todo/todo.module");
+const user_controller_1 = require("./user/user.controller");
+const user_service_1 = require("./user/user.service");
+const user_entity_1 = require("./user/entities/user.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -33,13 +32,13 @@ exports.AppModule = AppModule = __decorate([
                     synchronize: configService.get('DATABASE_SYNC'),
                     logging: configService.get('DATABASE_LOGGING'),
                     database: configService.get('DATABASE_NAME'),
+                    entities: [user_entity_1.User],
                 }),
             }),
-            user_module_1.UserModule,
-            todo_module_1.TodoModule,
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
         ],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        controllers: [user_controller_1.UserController],
+        providers: [user_service_1.UserService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

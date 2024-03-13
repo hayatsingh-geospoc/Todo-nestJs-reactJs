@@ -5,6 +5,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { TodoModule } from './todo/todo.module';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
+import { User } from './user/entities/user.entity';
 
 @Module({
   imports: [
@@ -21,14 +24,13 @@ import { TodoModule } from './todo/todo.module';
         synchronize: configService.get<boolean>('DATABASE_SYNC'),
         logging: configService.get<boolean>('DATABASE_LOGGING'),
         database: configService.get('DATABASE_NAME'),
-        //entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        entities: [User],
       }),
     }),
-    UserModule,
-    TodoModule,
+    TypeOrmModule.forFeature([User]),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [UserController],
+  providers: [UserService],
 })
 export class AppModule {}
 
