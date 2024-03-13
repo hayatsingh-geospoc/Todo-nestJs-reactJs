@@ -31,7 +31,7 @@ export class UserController {
     return this.userService.createUser(createUserDto);
   }
 
-  @Get()
+  @Get('/data')
   findAll(){
     return this.userService.FindAll()
   }
