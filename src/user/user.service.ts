@@ -48,4 +48,8 @@ export class UserService {
   async FindAll() {
     return this.userRepository.find();
   }
+
+  async remove(id: number) {
+    return this.userRepository.delete(id);
+  }
 }

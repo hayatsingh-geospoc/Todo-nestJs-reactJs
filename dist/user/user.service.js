@@ -34,6 +34,9 @@ let UserService = class UserService {
     async FindAll() {
         return this.userRepository.find();
     }
+    async remove(id) {
+        return this.userRepository.delete(id);
+    }
 };
 exports.UserService = UserService;
 exports.UserService = UserService = __decorate([

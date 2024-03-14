@@ -15,7 +15,7 @@
 // }
 
 // user.controller.ts
-import { Controller, Post, Body, ValidationPipe, Get } from '@nestjs/common';
+import { Controller, Post, Body, ValidationPipe, Get, Delete, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -35,4 +35,12 @@ export class UserController {
   findAll(){
     return this.userService.FindAll()
   }
+
+
+
+  @Delete(':id')
+  remove(@Param('id') id:string){
+    return this.userService.remove(+id)
+  }
+
 }
