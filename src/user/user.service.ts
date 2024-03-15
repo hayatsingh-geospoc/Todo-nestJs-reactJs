@@ -49,6 +49,10 @@ export class UserService {
     return this.userRepository.find();
   }
 
+  async FindUserByEmail(email: string) {
+    return this.userRepository.findOneOrFail({ where: { email: email } });
+  }
+
   async remove(id: number) {
     return this.userRepository.delete(id);
   }

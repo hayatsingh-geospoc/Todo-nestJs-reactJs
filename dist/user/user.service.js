@@ -34,6 +34,9 @@ let UserService = class UserService {
     async FindAll() {
         return this.userRepository.find();
     }
+    async FindUserByEmail(email) {
+        return this.userRepository.findOneOrFail({ where: { email: email } });
+    }
     async remove(id) {
         return this.userRepository.delete(id);
     }
