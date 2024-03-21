@@ -13,6 +13,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const user_controller_1 = require("./user/user.controller");
 const user_service_1 = require("./user/user.service");
 const user_entity_1 = require("./user/entities/user.entity");
+const todo_entity_1 = require("./todo/entities/todo.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -32,10 +33,10 @@ exports.AppModule = AppModule = __decorate([
                     synchronize: configService.get('DATABASE_SYNC'),
                     logging: configService.get('DATABASE_LOGGING'),
                     database: configService.get('DATABASE_NAME'),
-                    entities: [user_entity_1.User],
+                    entities: [user_entity_1.User, todo_entity_1.Todo],
                 }),
             }),
-            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, todo_entity_1.Todo]),
         ],
         controllers: [user_controller_1.UserController],
         providers: [user_service_1.UserService],

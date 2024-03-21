@@ -8,6 +8,7 @@ import { TodoModule } from './todo/todo.module';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { User } from './user/entities/user.entity';
+import { Todo } from './todo/entities/todo.entity';
 
 @Module({
   imports: [
@@ -24,10 +25,10 @@ import { User } from './user/entities/user.entity';
         synchronize: configService.get<boolean>('DATABASE_SYNC'),
         logging: configService.get<boolean>('DATABASE_LOGGING'),
         database: configService.get('DATABASE_NAME'),
-        entities: [User],
+        entities: [User,Todo],
       }),
     }),
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([User,Todo]),
   ],
   controllers: [UserController],
   providers: [UserService],
