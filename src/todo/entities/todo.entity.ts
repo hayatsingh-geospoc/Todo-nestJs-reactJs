@@ -11,6 +11,8 @@ export class Todo {
   @Column()
   date: string;
 
+  
+
   @Column()
   completed: boolean;
 }
